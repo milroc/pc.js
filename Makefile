@@ -10,8 +10,11 @@ all: \
 .INTERMEDIATE pc.v0.js: \
 	src/core/core.js \
 	src/core/property.js \
+	src/core/criteria.js \
 	src/core/typed.js \
 	src/core/defaults.js \
+	src/numbers/numbers.js \
+	src/numbers/positive.js \
 	Makefile
 
 test: all

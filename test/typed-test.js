@@ -47,9 +47,9 @@ suite.addBatch({
 			var f = foo();
 			assert.equal(f.bar(), 5);
 			assert.strictEqual(f.foobar(), "Hello");
+			assert.equal(f.foobar(function() { return "hello";}), null);
 			assert.equal(f.bar("5"), null);
 			assert.equal(f.bar(), 5);
-			assert.equal(f.foobar(function() { return "hello";}), null);
 			assert.strictEqual(f.foobar(), "Hello");
 		}
 	}

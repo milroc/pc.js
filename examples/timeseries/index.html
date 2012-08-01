@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+svg {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#example {
+  margin-left: 40px;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.area {
+  fill: #969696;
+}
+    </style>
+  </head>
+  <body>
+    <script src="http://mbostock.github.com/d3/d3.js?2.7.2"></script>
+    <script src="pc.v0.js"></script> <!-- TODO SET AS http://milroc.github.com/pc/pc.js?1.0.0 -->
+    <script src="timeseries.js"></script>
+    <script>
+d3.csv("sp500.csv", function(data) {
+  var formatDate = d3.time.format("%b %Y");
+
+  d3.select("#example")
+      .datum(data)
+    .call(timeSeriesChart()
+      .x(function(d) { return formatDate.parse(d.date); })
+      .y(function(d) { return +d.price; }));
+});
+    </script>
+    <div id="example"></div>
+  </body>
+</html>
